@@ -1,0 +1,920 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+html {
+    scroll-behavior: smooth;
+}
+
+body {
+    background: #080816;
+    color: white;
+    font-family: Georgia, "Times New Roman", serif;
+    overflow-x: hidden;
+}
+
+
+/* =========================
+   STAR SKY
+========================= */
+
+.sky {
+    position: fixed;
+    inset: 0;
+    background:
+        radial-gradient(
+            circle at 50% 20%,
+            #26234e,
+            #100f25 45%,
+            #05050e
+        );
+
+    z-index: -5;
+}
+
+.moon {
+    position: absolute;
+    top: 10%;
+    right: 12%;
+
+    width: 100px;
+    height: 100px;
+
+    border-radius: 50%;
+
+    font-size: 70px;
+
+    filter:
+        drop-shadow(0 0 25px #fff)
+        drop-shadow(0 0 60px #aaa);
+}
+
+
+.star {
+    position: absolute;
+    color: white;
+    animation: twinkle 2s infinite alternate;
+}
+
+.s1 {
+    top: 12%;
+    left: 12%;
+}
+
+.s2 {
+    top: 25%;
+    left: 30%;
+}
+
+.s3 {
+    top: 18%;
+    left: 55%;
+}
+
+.s4 {
+    top: 38%;
+    left: 80%;
+}
+
+.s5 {
+    top: 55%;
+    left: 15%;
+}
+
+.s6 {
+    top: 70%;
+    left: 35%;
+}
+
+.s7 {
+    top: 65%;
+    left: 75%;
+}
+
+.s8 {
+    top: 85%;
+    left: 55%;
+}
+
+
+/* =========================
+   HERO
+========================= */
+
+.hero {
+    min-height: 100vh;
+
+    display: flex;
+    flex-direction: column;
+
+    justify-content: center;
+    align-items: center;
+
+    text-align: center;
+
+    padding: 30px;
+}
+
+.mini {
+    letter-spacing: 6px;
+    font-size: 11px;
+    color: #c8c6e8;
+    margin-bottom: 30px;
+}
+
+.hero h1 {
+    font-size: clamp(55px, 10vw, 120px);
+    font-weight: normal;
+    line-height: 0.9;
+}
+
+.hero h1 span {
+    display: block;
+
+    font-style: italic;
+
+    background: linear-gradient(
+        90deg,
+        #fff,
+        #f4b6dc,
+        #c9b7ff
+    );
+
+    -webkit-background-clip: text;
+    color: transparent;
+
+    margin-top: 20px;
+}
+
+.hero-text {
+    margin-top: 35px;
+    max-width: 500px;
+
+    color: #c9c7dc;
+
+    font-size: 18px;
+    line-height: 1.8;
+}
+
+button {
+    margin-top: 35px;
+
+    padding: 15px 35px;
+
+    border: 1px solid rgba(255,255,255,.3);
+
+    border-radius: 50px;
+
+    background: rgba(255,255,255,.08);
+
+    color: white;
+
+    font-size: 15px;
+
+    cursor: pointer;
+
+    backdrop-filter: blur(10px);
+
+    transition: .4s;
+}
+
+button:hover {
+    background: white;
+    color: #111;
+
+    transform: translateY(-5px);
+
+    box-shadow:
+        0 15px 40px rgba(255,255,255,.15);
+}
+
+
+/* =========================
+   SECTIONS
+========================= */
+
+.birthday,
+.gift-area,
+.message-section {
+
+    min-height: 100vh;
+
+    padding:
+        120px 20px;
+
+    text-align: center;
+}
+
+.section-title {
+    font-size: 30px;
+    margin-bottom: 20px;
+}
+
+.section-title span {
+    font-size: 12px;
+    color: #8f8cae;
+    letter-spacing: 3px;
+    margin-right: 10px;
+}
+
+.instruction {
+    color: #aaa7c1;
+    line-height: 1.8;
+}
+
+
+/* =========================
+   CAKE
+========================= */
+
+.cake-area {
+    position: relative;
+
+    width: 320px;
+    height: 330px;
+
+    margin: 60px auto 20px;
+}
+
+.glow {
+    position: absolute;
+
+    width: 250px;
+    height: 250px;
+
+    left: 35px;
+    top: 30px;
+
+    background: #a64dff;
+
+    filter: blur(100px);
+
+    opacity: .25;
+}
+
+
+.cake {
+    position: absolute;
+
+    width: 230px;
+    height: 160px;
+
+    left: 45px;
+    top: 110px;
+}
+
+
+/* Cake bottom */
+
+.cake-bottom {
+    position: absolute;
+
+    width: 230px;
+    height: 65px;
+
+    bottom: 0;
+
+    border-radius:
+        0 0 20px 20px;
+
+    background:
+        linear-gradient(
+            90deg,
+            #7d315f,
+            #c15b92,
+            #7d315f
+        );
+
+    box-shadow:
+        0 20px 40px #000;
+}
+
+
+/* Middle */
+
+.cake-middle {
+    position: absolute;
+
+    width: 215px;
+    height: 55px;
+
+    left: 7px;
+    bottom: 45px;
+
+    background:
+        linear-gradient(
+            90deg,
+            #f3a4c9,
+            #ffd1e6,
+            #e786b5
+        );
+
+    border-radius:
+        10px 10px 5px 5px;
+}
+
+
+/* Top */
+
+.cake-top {
+    position: absolute;
+
+    width: 220px;
+    height: 60px;
+
+    left: 5px;
+    top: 0;
+
+    border-radius: 50%;
+
+    background:
+        linear-gradient(
+            90deg,
+            #ffb4d8,
+            #fff0f7,
+            #ff9bca
+        );
+
+    z-index: 4;
+
+    display: flex;
+
+    justify-content: space-around;
+
+    align-items: center;
+
+    padding: 20px;
+}
+
+
+/* Candle */
+
+.candle {
+    position: absolute;
+
+    width: 18px;
+    height: 65px;
+
+    left: 106px;
+    top: -58px;
+
+    background:
+        repeating-linear-gradient(
+            45deg,
+            #fff,
+            #fff 7px,
+            #8d6aff 7px,
+            #8d6aff 14px
+        );
+
+    border-radius: 4px;
+
+    z-index: 10;
+}
+
+.wick {
+    position: absolute;
+
+    width: 3px;
+    height: 10px;
+
+    background: #111;
+
+    top: -8px;
+    left: 7px;
+}
+
+
+/* Flame */
+
+.flame {
+    position: absolute;
+
+    width: 25px;
+    height: 38px;
+
+    top: -43px;
+    left: -3px;
+
+    border-radius:
+        50% 50% 50% 50%;
+
+    background:
+        radial-gradient(
+            circle at 50% 70%,
+            white 0 15%,
+            #ffd000 25%,
+            #ff6900 60%,
+            transparent 70%
+        );
+
+    filter:
+        drop-shadow(0 0 10px #ffb300)
+        drop-shadow(0 0 25px #ff6500);
+
+    animation:
+        fire .35s infinite alternate;
+}
+
+.flame.off {
+    animation:
+        extinguish .5s forwards;
+}
+
+
+/* Smoke */
+
+.smoke {
+    position: absolute;
+
+    top: 25px;
+    left: 145px;
+
+    font-size: 40px;
+
+    opacity: 0;
+
+    pointer-events: none;
+}
+
+.smoke.active {
+    animation:
+        smoke 2s forwards;
+}
+
+
+/* Wish */
+
+.wish {
+    opacity: 0;
+
+    margin-top: 10px;
+
+    color: #ffd7ef;
+
+    font-size: 22px;
+
+    transition: 1s;
+}
+
+.wish.show {
+    opacity: 1;
+}
+
+
+/* =========================
+   GIFT
+========================= */
+
+.gift-area {
+    opacity: 0;
+    transform: translateY(100px);
+
+    transition: 1.5s;
+
+    pointer-events: none;
+}
+
+.gift-area.visible {
+    opacity: 1;
+    transform: translateY(0);
+
+    pointer-events: auto;
+}
+
+
+.gift {
+    width: 190px;
+    height: 180px;
+
+    margin: 80px auto 30px;
+
+    position: relative;
+
+    cursor: pointer;
+
+    transition: .7s;
+}
+
+
+/* Gift body */
+
+.gift-body {
+    position: absolute;
+
+    width: 180px;
+    height: 120px;
+
+    bottom: 0;
+    left: 5px;
+
+    border-radius: 5px;
+
+    background:
+        linear-gradient(
+            135deg,
+            #703dff,
+            #bb55c9
+        );
+
+    box-shadow:
+        0 25px 50px #000;
+}
+
+
+/* Ribbon */
+
+.vertical-ribbon {
+    position: absolute;
+
+    width: 25px;
+    height: 120px;
+
+    left: 78px;
+
+    background: #ffd65a;
+}
+
+
+/* Lid */
+
+.gift-top {
+    position: absolute;
+
+    width: 200px;
+    height: 35px;
+
+    left: -5px;
+    top: 25px;
+
+    background: #9252ff;
+
+    border-radius: 5px;
+
+    z-index: 5;
+
+    transition: 1s;
+}
+
+
+.ribbon {
+    position: absolute;
+
+    width: 25px;
+    height: 35px;
+
+    left: 87px;
+
+    background: #ffd65a;
+}
+
+
+/* Bow */
+
+.bow i {
+    position: absolute;
+
+    width: 50px;
+    height: 35px;
+
+    background: #ffd65a;
+
+    border-radius: 50%;
+}
+
+.bow i:first-child {
+    left: 55px;
+    top: -30px;
+
+    transform: rotate(-30deg);
+}
+
+.bow i:last-child {
+    right: 55px;
+    top: -30px;
+
+    transform: rotate(30deg);
+}
+
+
+.gift.open .gift-top {
+    transform:
+        translateY(-100px)
+        rotate(-8deg);
+}
+
+
+/* =========================
+   LETTER
+========================= */
+
+.message-section {
+    opacity: 0;
+    transform: translateY(100px);
+
+    transition: 1.5s;
+
+    pointer-events: none;
+}
+
+.message-section.visible {
+    opacity: 1;
+    transform: translateY(0);
+
+    pointer-events: auto;
+}
+
+
+.letter {
+    max-width: 800px;
+
+    margin: 60px auto;
+
+    padding: 50px;
+
+    background:
+        linear-gradient(
+            135deg,
+            rgba(255,255,255,.08),
+            rgba(255,255,255,.03)
+        );
+
+    border: 1px solid rgba(255,255,255,.12);
+
+    border-radius: 25px;
+
+    box-shadow:
+        0 30px 80px rgba(0,0,0,.4);
+
+    backdrop-filter: blur(20px);
+}
+
+
+/* Photo */
+
+.photo {
+    width: 180px;
+    height: 180px;
+
+    margin: 0 auto 40px;
+
+    padding: 5px;
+
+    border-radius: 50%;
+
+    background:
+        linear-gradient(
+            135deg,
+            #ff9bcf,
+            #9d7aff,
+            #fff
+        );
+
+    box-shadow:
+        0 0 40px rgba(218,130,255,.3);
+}
+
+.photo img {
+    width: 100%;
+    height: 100%;
+
+    object-fit: cover;
+
+    border-radius: 50%;
+
+    border: 5px solid #161426;
+}
+
+
+.letter-content {
+    color: #c9c6d8;
+
+    font-family:
+        "Segoe UI",
+        sans-serif;
+
+    line-height: 2;
+
+    font-size: 16px;
+}
+
+.letter-content p {
+    margin: 25px 0;
+}
+
+
+.hello {
+    color: #ffb7dd;
+
+    font-family: Georgia, serif;
+
+    font-size: 25px;
+}
+
+
+.highlight {
+    margin: 40px 0;
+
+    padding: 25px;
+
+    border-left:
+        3px solid #ff9ed1;
+
+    background:
+        rgba(255,150,210,.05);
+
+    color: #ffe0f2;
+
+    font-family: Georgia, serif;
+
+    font-size: 20px;
+
+    line-height: 1.8;
+}
+
+
+.letter-content h2 {
+    color: #fff;
+
+    font-size: 40px;
+
+    font-weight: normal;
+
+    font-family: Georgia, serif;
+
+    margin: 50px 0;
+
+    text-shadow:
+        0 0 20px #ff75bb;
+}
+
+
+.ending {
+    color: #fff;
+    font-size: 20px;
+}
+
+
+.love {
+    color: #ff9ed1;
+    font-family: Georgia, serif;
+}
+
+
+/* =========================
+   FALLING STARS
+========================= */
+
+.falling-star {
+    position: fixed;
+
+    top: -30px;
+
+    z-index: 100;
+
+    animation:
+        falling linear forwards;
+
+    pointer-events: none;
+}
+
+
+/* =========================
+   FOOTER
+========================= */
+
+footer {
+    text-align: center;
+
+    padding: 50px;
+
+    color: #77748e;
+
+    font-size: 13px;
+
+    letter-spacing: 2px;
+}
+
+
+/* =========================
+   ANIMATIONS
+========================= */
+
+@keyframes twinkle {
+
+    from {
+        opacity: .2;
+        transform: scale(.8);
+    }
+
+    to {
+        opacity: 1;
+        transform: scale(1.3);
+    }
+}
+
+
+@keyframes fire {
+
+    from {
+        transform: scale(1) rotate(-3deg);
+    }
+
+    to {
+        transform: scale(1.15) rotate(3deg);
+    }
+}
+
+
+@keyframes extinguish {
+
+    0% {
+        transform: scale(1);
+        opacity: 1;
+    }
+
+    100% {
+        transform:
+            scale(.1)
+            translateY(20px);
+
+        opacity: 0;
+    }
+}
+
+
+@keyframes smoke {
+
+    0% {
+        opacity: .8;
+        transform:
+            translateY(0)
+            scale(.8);
+    }
+
+    100% {
+        opacity: 0;
+        transform:
+            translateY(-100px)
+            translateX(30px)
+            scale(2);
+    }
+}
+
+
+@keyframes falling {
+
+    0% {
+        transform:
+            translateY(-30px)
+            rotate(0);
+        opacity: 1;
+    }
+
+    100% {
+        transform:
+            translateY(110vh)
+            rotate(720deg);
+        opacity: 0;
+    }
+}
+
+
+/* =========================
+   MOBILE
+========================= */
+
+@media(max-width:600px) {
+
+    .hero h1 {
+        font-size: 55px;
+    }
+
+    .hero {
+        padding: 20px;
+    }
+
+    .letter {
+        padding: 30px 20px;
+    }
+
+    .letter-content {
+        font-size: 15px;
+    }
+
+    .letter-content h2 {
+        font-size: 32px;
+    }
+
+    .cake-area {
+        transform: scale(.85);
+    }
+
+    .moon {
+        right: 5%;
+        top: 5%;
+    }
+
+}
